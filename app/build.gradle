@@ -6,6 +6,14 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
+    signingConfigs {
+        config {
+            keyAlias 'riskaadhita'
+            keyPassword 'riskaadhita123!'
+            storeFile file('riskaadhita.jks')
+            storePassword 'riskaadhita123!'
+        }
+    }
     defaultConfig {
         applicationId "com.example.riskaadhita"
         minSdkVersion 19

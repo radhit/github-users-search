@@ -29,14 +29,17 @@ class MainActivity : BaseActivity() {
     lateinit var adapter: UsersAdapter
     var listUsers: ArrayList<Item> = arrayListOf()
     var page = 1
-    var delay: Long = 1500
+    var delay: Long = 1000
     var lastEdit: Long = 0
     var handler: Handler = Handler()
 
     private val finishChecker = Runnable {
         if (System.currentTimeMillis() > lastEdit + delay - 500) {
-            page = 1
-            getData()
+            if (!et_search.text.toString().equals("")){
+                page = 1
+                getData()
+            }
+
         }
     }
 
@@ -63,8 +66,12 @@ class MainActivity : BaseActivity() {
         })
         et_search.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                page = 1
-                getData()
+                if (et_search.text.toString().equals("")){
+                    Toast.makeText(this@MainActivity, "Fill search box first!", Toast.LENGTH_LONG).show()
+                } else{
+                    page = 1
+                    getData()
+                }
                 return@OnEditorActionListener true
             }
             false
