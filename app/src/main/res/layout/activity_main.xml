@@ -31,38 +31,46 @@
             android:background="@color/white"
             android:imeOptions="actionSearch"/>
     </LinearLayout>
-    <RelativeLayout
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
+        android:layout_height="match_parent"
+        app:srlPrimaryColor="?attr/colorPrimary"
+        app:srlAccentColor="@color/white"
+        android:id="@+id/refresh_layout"
+        android:shadowColor="@color/white">
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/rv_list"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Please Wait..."
-            android:background="@drawable/rounded_primary"
-            android:id="@+id/tv_loading"
-            android:gravity="center"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone"
-            android:layout_marginBottom="15dp"
-            android:textSize="14sp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:padding="5dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:visibility="gone"
-            android:id="@+id/tv_notfound"
-            android:text="User not found"/>
-    </RelativeLayout>
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rv_list"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please Wait..."
+                android:background="@drawable/rounded_primary"
+                android:id="@+id/tv_loading"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone"
+                android:layout_marginBottom="15dp"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:padding="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:id="@+id/tv_note"
+                android:text="User not found"/>
+        </RelativeLayout>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
 </LinearLayout>
